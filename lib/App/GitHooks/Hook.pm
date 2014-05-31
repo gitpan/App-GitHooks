@@ -17,11 +17,11 @@ App::GitHooks::Hook - Base class for all git hook handlers.
 
 =head1 VERSION
 
-Version 1.0.0
+Version 1.0.1
 
 =cut
 
-our $VERSION = '1.0.0';
+our $VERSION = '1.0.1';
 
 
 =head1 METHODS
@@ -40,7 +40,7 @@ Arguments:
 
 =item * app I<(mandatory)>
 
-An C<App::GitHooks> object.
+An L<App::GitHooks> object.
 
 =back
 
