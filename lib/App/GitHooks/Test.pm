@@ -31,11 +31,11 @@ App::GitHooks::Test - Shared test functions for App::GitHooks.
 
 =head1 VERSION
 
-Version 1.0.3
+Version 1.0.4
 
 =cut
 
-our $VERSION = '1.0.3';
+our $VERSION = '1.0.4';
 
 our @EXPORT_OK = qw(
 	ok_add_file
@@ -486,7 +486,7 @@ sub test_hook
 		if $hook_name !~ /^[\w-]+$/;
 
 	# Bail out if Git isn't available.
-	has_git();
+	has_git( '1.5.0' );
 	plan( tests => scalar( @$tests ) );
 
 	foreach my $test ( @$tests )
