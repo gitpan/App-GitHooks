@@ -37,11 +37,11 @@ App::GitHooks - Extensible plugins system for git hooks.
 
 =head1 VERSION
 
-Version 1.0.5
+Version 1.0.6
 
 =cut
 
-our $VERSION = '1.0.5';
+our $VERSION = '1.0.6';
 
 
 =head1 SYNOPSIS
@@ -64,6 +64,11 @@ All you need to do then is install the plugins you are interested in!
 
 This distribution also includes a C<hooks/> directory that you can symlink
 C<.git/hooks/> to instead, to get all the hooks set up properly in one swoop.
+
+
+=head1 GIT REQUIREMENTS
+
+L<App::GitHooks> requires git v1.7.4.1 or above.
 
 
 =head1 VALID GIT HOOK NAMES
