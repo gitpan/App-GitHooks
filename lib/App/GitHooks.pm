@@ -37,18 +37,40 @@ App::GitHooks - Extensible plugins system for git hooks.
 
 =head1 VERSION
 
-Version 1.0.6
+Version 1.0.7
 
 =cut
 
-our $VERSION = '1.0.6';
+our $VERSION = '1.0.7';
+
+
+=head1 DESCRIPTION
+
+C<App::GitHooks> is an extensible and easy to configure git hooks framework that supports many plugins.
+
+Here's an example of it in action, running the C<pre-commit> hook checks before
+the commit message can be entered:
+
+=begin html
+
+<div><img src="https://raw.github.com/guillaumeaubert/App-GitHooks/master/img/app-githooks-example-success.png"></div>
+
+=end html
+
+Here is another example, with a Perl file that fails compilation this time:
+
+=begin html
+
+<div><img src="https://raw.github.com/guillaumeaubert/App-GitHooks/master/img/app-githooks-example-failure.png"></div>
+
+=end html
 
 
 =head1 SYNOPSIS
 
 Symlink your git hooks under .git/hooks to a file with the following content:
 
-	#!perl
+	#!/usr/bin/env perl
 
 	use strict;
 	use warnings;
@@ -64,6 +86,10 @@ All you need to do then is install the plugins you are interested in!
 
 This distribution also includes a C<hooks/> directory that you can symlink
 C<.git/hooks/> to instead, to get all the hooks set up properly in one swoop.
+
+Important: adjust C</usr/bin/env perl> as needed, if that line is not a valid
+interpreter, your git actions will fail with C<error: cannot run
+.git/hooks/[hook name]: No such file or directory>.
 
 
 =head1 GIT REQUIREMENTS
@@ -413,8 +439,10 @@ sub run
 		);
 
 		# Force the output to match the terminal encoding.
-		my $terminal_encoding = $self->get_terminal()->get_encoding();
-		binmode( STDOUT, "encoding($terminal_encoding)" );
+		my $terminal = $self->get_terminal();
+		my $terminal_encoding = $terminal->get_encoding();
+		binmode( STDOUT, "encoding($terminal_encoding)" )
+			if $terminal->is_utf8();
 
 		# Run the hook.
 		my $hook_exit_code = $hook_class->run(

@@ -29,6 +29,8 @@ hooks/pre-receive
 hooks/prepare-commit-msg
 hooks/update
 ignore.txt
+img/app-githooks-example-success.png
+img/app-githooks-example-failure.png
 lib/App/GitHooks.pm
 lib/App/GitHooks/CommitMessage.pm
 lib/App/GitHooks/Config.pm
@@ -58,6 +60,7 @@ lib/App/GitHooks/Terminal.pm
 lib/App/GitHooks/Test.pm
 lib/App/GitHooks/Utils.pm
 t/00-load.t
+t/01-git_version.t
 t/05-Terminal/00-load.t
 t/05-Terminal/10-new.t
 t/05-Terminal/20-get_encoding.t
