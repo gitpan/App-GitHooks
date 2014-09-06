@@ -21,7 +21,7 @@ githooks - Setup utility for App::GitHooks
 
 =head1 VERSION
 
-Version 1.1.4
+Version 1.1.5
 
 
 =head1 DESCRIPTION
@@ -55,6 +55,8 @@ repository, so that all of App::GitHooks' hooks are triggered properly.
 =over 4
 
 =item * C<--chmod> - Chmod to use for the git hooks (default: 755).
+
+=back
 
 =cut
 

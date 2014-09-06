@@ -37,11 +37,11 @@ App::GitHooks - Extensible plugins system for git hooks.
 
 =head1 VERSION
 
-Version 1.1.4
+Version 1.1.5
 
 =cut
 
-our $VERSION = '1.1.4';
+our $VERSION = '1.1.5';
 
 
 =head1 DESCRIPTION
@@ -68,7 +68,7 @@ Here is another example, with a Perl file that fails compilation this time:
 
 =head1 SYNOPSIS
 
-=over4
+=over 4
 
 =item 1.
 
